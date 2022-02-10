@@ -24,7 +24,7 @@ pip3 install tk numpy itkdb requests
 Linux: 
 
 ```
-sudo apt-get install python-tk numpy itkdb requests
+sudo apt-get install python3-tk numpy itkdb requests
 ```
 
 # Edits
