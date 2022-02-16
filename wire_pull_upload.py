@@ -52,6 +52,7 @@ WIRE_BONDER = "Delvoteck G5"
 INSTITUTE = 'TRIUMF_SENSORS'
 
 # CONSTANTS
+DATA_START_ROW = 0
 THRESHOLD = 5
 SERIES_ROW = 0
 DATE_ROW = 1
@@ -115,6 +116,10 @@ def read_file(filename):
     with open(filename) as data_file:
         file_reader = csv.reader(data_file)
         data_array = list(file_reader)
+    #Skip possible whitespace
+    while data_array[0] == []:
+        data_array = data_array[1:]
+        print(data_array)
     
     date = data_array[DATE_ROW][HEADER_COL]
     time = data_array[TIME_ROW][HEADER_COL]
