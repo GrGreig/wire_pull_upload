@@ -21,10 +21,12 @@ MAC:
 pip3 install tk numpy itkdb requests
 ```
 
-Linux: 
+CENTOS: 
 
 ```
-sudo apt-get install python3-tk numpy itkdb requests
+yum install python3-tkinter
+
+pip3 install numpy requests itkdb --user
 ```
 
 # Edits
