@@ -49,7 +49,7 @@ import itkdb
 # VARIABLES TO EDIT
 PULL_TEST_NAME = "Dage Series 4000"
 WIRE_BONDER = "Delvoteck G5"
-INSTITUTE = 'TRIUMF_SENSORS'
+INSTITUTE = 'SFU'
 
 # CONSTANTS
 DATA_START_ROW = 0
@@ -86,7 +86,7 @@ def get_percent_heel_breaks(pull_grades):
     may need to be modified based on the machine being used."""
     count = 0
     for pull_grade in pull_grades:
-        if pull_grade == 1 or pull_grade == 2:
+        if pull_grade == 1 or pull_grade == 2 or pull_grade == 3:
             count += 1
     return count / len(pull_grades) * 100
     
@@ -191,6 +191,7 @@ def get_file_data():
     DATA_DICT["problems"] = ""
     DATA_DICT["properties"] = properties
     DATA_DICT["results"] = results
+    print(DATA_DICT)
 
 def save_data():
     """Saves the data to the database"""
