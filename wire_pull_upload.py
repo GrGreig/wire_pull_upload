@@ -94,7 +94,7 @@ def get_percent_heel_breaks(pull_grades):
 def format_datetime(date, time):
     """Format the strings date: {m}m/{d}d/yyyy and time: {h}h:{m}m:{s}s to
        the format needed for the database: yyyy-mm-ddThh:mm:ssZ"""
-    month, day, year = list(map(int,date.split('/')))
+    day, month, year = list(map(int,date.split('/')))
     hour, minute, sec = list(map(int,time.split(':')))
     return f"{year:02d}-{month:02d}-{day:02d}T{hour:02d}:{minute:02d}:{sec:02d}.000Z"
 
