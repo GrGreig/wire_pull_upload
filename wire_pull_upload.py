@@ -186,8 +186,10 @@ def get_file_data():
     DATA_DICT["date"] = date_time
     if min_pull >= MIN_PULL and percent_heels >= MIN_HEELS and mean >= MIN_MEAN and standard_dev <= MAX_ST_DEV and num_wires >= MIN_BONDS:
         DATA_DICT["passed"] = True
+        output_text.set("Test passed all parameters. Please upload data.")
     else: 
         DATA_DICT["passed"] = False
+        output_text.set("Test failed on one or more parameters. Please upload data.")
     DATA_DICT["problems"] = ""
     DATA_DICT["properties"] = properties
     DATA_DICT["results"] = results
