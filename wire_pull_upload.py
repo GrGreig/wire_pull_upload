@@ -91,12 +91,11 @@ def get_percent_heel_breaks(pull_grades):
     return count / len(pull_grades) * 100
     
     
-def format_datetime(date, time):
-    """Format the strings date: {m}m/{d}d/yyyy and time: {h}h:{m}m:{s}s to
-       the format needed for the database: yyyy-mm-ddThh:mm:ssZ"""
-    day, month, year = list(map(int,date.split('/')))
-    hour, minute, sec = list(map(int,time.split(':')))
-    return f"{year:02d}-{month:02d}-{day:02d}T{hour:02d}:{minute:02d}:{sec:02d}.000Z"
+def get_date(filename):
+    """Gets the date of a file in ISO8601 format"""
+    creation_time = os.path.getctime(filename) 
+    creation_time = datetime.utcfromtimestamp(creation_time)
+    return creation_time.strftime('%Y-%m-%dT%H:%M:%S.%f%ZZ')
 
     
 def read_file(filename):
@@ -121,10 +120,8 @@ def read_file(filename):
         data_array = data_array[1:]
         print(data_array)
     
-    date = data_array[DATE_ROW][HEADER_COL]
-    time = data_array[TIME_ROW][HEADER_COL]
     operator = data_array[OPERATOR_ROW][HEADER_COL]
-    date_time = format_datetime(date, time)
+    date_time = get_date(filename)
     
     pull_grades, pull_strengths = ([] for i in range(2))
     for i in range(9,len(data_array)):
