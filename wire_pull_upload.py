@@ -45,6 +45,7 @@ import tkinter as tk
 import os
 from tkinter import filedialog
 import itkdb
+from datetime import datetime
 
 # VARIABLES TO EDIT
 PULL_TEST_NAME = "Dage Series 4000"
